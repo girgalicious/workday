@@ -1,6 +1,8 @@
 Workday API
 ===========
 
+[![Dependency Status](https://gemnasium.com/badges/github.com/girgalicious/workday.svg)](https://gemnasium.com/github.com/girgalicious/workday)
+
 Gem for interacting with Workday's API
 
 
