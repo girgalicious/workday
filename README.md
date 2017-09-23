@@ -2,6 +2,7 @@ Workday API
 ===========
 
 [![Dependency Status](https://gemnasium.com/badges/github.com/girgalicious/workday.svg)](https://gemnasium.com/github.com/girgalicious/workday)
+[![CircleCI](https://circleci.com/gh/girgalicious/workday.svg?style=svg)](https://circleci.com/gh/girgalicious/workday)
 
 Gem for interacting with Workday's API
 
