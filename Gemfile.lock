@@ -57,6 +57,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    rufo (0.1.0)
     safe_yaml (1.0.4)
     savon (2.2.0)
       akami (~> 1.2.0)
@@ -92,6 +93,7 @@ DEPENDENCIES
   excon
   pry-byebug
   rspec
+  rufo
   simplecov
   virtus-rspec
   webmock

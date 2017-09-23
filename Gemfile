@@ -7,4 +7,5 @@ group :test, :development do
   gem 'simplecov', :require => false
   gem 'pry-byebug', :require => false
   gem 'webmock'
+  gem 'rufo'
 end

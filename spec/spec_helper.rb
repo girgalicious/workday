@@ -1,14 +1,13 @@
 require 'simplecov'
-SimpleCov.start
-
 require 'workday'
-include Workday
-
 require 'virtus-rspec'
 
+include Workday
+
+SimpleCov.start
 
 RSpec.configure do |config|
-  config.order = "random"
+    config.order = "random"
 
-  config.include Virtus::Matchers
+    config.include Virtus::Matchers
 end
