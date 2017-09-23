@@ -14,7 +14,7 @@ GEM
       gyoku (>= 0.4.0)
       nokogiri
     awesome_print (1.8.0)
-    backports (3.6.8)
+    backports (3.8.0)
     builder (3.2.3)
     byebug (9.1.0)
     coderay (1.1.2)
@@ -90,6 +90,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  backports
   excon
   pry-byebug
   rspec

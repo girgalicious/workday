@@ -3,20 +3,36 @@ require 'savon'
 
 module Workday
     class Client
-        def initialize user_name, password, options = {}
-            logger = options.delete :logger
-            if ENV['WORKDAY_DEBUG'] || !logger
-                @logger = ::Logger.new(STDERR)
-            else
-                @logger = logger
-            end
-
-            options[:wsdl] = File.expand_path('lib/workday/assets/human_resources_v19.wsdl') if !options[:wsdl]
-            options[:wsse_auth] = [user_name, password]
+        def initialize(credentials, options = {})
+            
+            options[:wsdl] = File.expand_path('lib/workday/assets/Human_Resources.wsdl') if !options[:wsdl]
+            options[:wsse_auth] = [credentials[:username], credentials[:password]]
 
             options[:log_level] = :error if !options[:log_level]
             options[:pretty_print_xml] = true if !options[:pretty_print_xml]
+
+            @wsdl = options[:wsdl] || File.dirname(__FILE__) + '/../../resources/partner.wsdl.xml'
+
+            @host = options[:host] || "wd5-impl-services1.workday.com"
+            @login_url = options[:login_url] || "https://#{@host}/ccx/service/#{credentials[:tenant]}/Human_Resources"
+            
+            @logger = options[:logger] || false
+
+            # Override optional Savon attributes
+            savon_options = {}
+            %w(read_timeout open_timeout proxy raise_errors).each do |prop|
+                key = prop.to_sym
+                savon_options[key] = options[key] if options.key?(key)
+            end
+            
             @client = Savon.client(options)
+        end
+        
+        # Public: Get the names of all wsdl operations.
+        # List all available operations from the Human_Resources.wsdl
+        
+        def operations
+            @client.operations
         end
 
         def get_workers params = {}
